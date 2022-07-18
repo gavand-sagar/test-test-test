@@ -15,6 +15,7 @@ const authentication = require('./authentication')
 
 app.use(express.json());
 app.use(cookieParser());
+app.set("trust-proxy",1)
 // app.use(authentication)//(req, res, next) => authentication(req, res, next));
 // app.use(authentication)
 app.use(fileUpload())
@@ -212,7 +213,7 @@ app._router.stack.forEach(function (r) {
     }
 })
 
-app.listen("3001", () => {
-    console.log("Server is listening on port 3001");
+app.listen(process.env.PORT, () => {
+    console.log("Server is listening on port "+process.env.PORT);
 });
 
