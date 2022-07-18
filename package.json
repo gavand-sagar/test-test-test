@@ -1,0 +1,24 @@
+{
+  "name": "be",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon -x \"npm run buildrun\"",
+    "buildrun": "npm run build && npm run server",
+    "build": "echo Building Addon && cd addon && node-gyp build",
+    "server": "nodemon index.js",
+    "start" :"nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "express-fileupload": "^1.4.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.4.1",
+    "pug": "^3.0.2"
+  }
+}

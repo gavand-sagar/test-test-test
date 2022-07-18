@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form enctype="multipart/form-data"></form>
+    <button onclick="login()">Login</button>
+    <button onclick="other()">Other</button>
+    <script>
+        function other() {
+            fetch('http://localhost:3001/accessResource', {
+                credentials: 'include'
+            }).then(x => x.json()).then(x => {
+
+            });
+        }
+        function login() {
+            fetch('http://localhost:3001/login', {
+                method: 'POST',
+                body: JSON.stringify({ email: 'sagar@sagar.com' })
+            }).then(x => {
+                return x.json()
+            }).then(x => {
+                document.cookie = `token=${x.data.token}`
+                console.log(x)
+
+            })
+        }
+    </script>
+</body>
+
+</html>
